@@ -10,7 +10,7 @@ use App\Models\CarModel;
 use App\Models\Preventive;
 use Illuminate\Http\Request;
 
-class CarController extends Controller
+class CarController extends MainController
 {
     /**
      * Display a listing of the resource.

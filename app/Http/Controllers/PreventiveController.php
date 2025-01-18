@@ -5,14 +5,15 @@ namespace App\Http\Controllers;
 use App\Models\Preventive;
 use Illuminate\Http\Request;
 
-class PreventiveController extends Controller
+class PreventiveController extends MainController
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        //
+        $preventives = Preventive::all();
+        return view('admin.preventives.index', compact('preventives'));
     }
 
     /**
@@ -20,7 +21,7 @@ class PreventiveController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.preventives.create');
     }
 
     /**
@@ -28,7 +29,22 @@ class PreventiveController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+
+        $request->validate([
+            'user_id' => 'required|integer',
+            'card_id' => 'required|integer',
+            'total_price' => 'required|numeric',
+            'creation_date' => 'required|date|date_format:d-m-y',
+        ]);
+
+        $preventive = new Preventive();
+        $preventive->name = $data['name'];
+        $preventive->description = $data['description'];
+        $preventive->period = $data['period'];
+        $preventive->save();
+
+        return redirect()->route('preventives.index');
     }
 
     /**

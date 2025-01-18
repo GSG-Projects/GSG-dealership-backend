@@ -5,14 +5,15 @@ namespace App\Http\Controllers;
 use App\Models\CarModel;
 use Illuminate\Http\Request;
 
-class CarModelController extends Controller
+class CarModelController extends MainController
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        //
+        $carModels = CarModel::all();
+        return view('car_models.index', compact('carModels'));
     }
 
     /**
@@ -20,7 +21,7 @@ class CarModelController extends Controller
      */
     public function create()
     {
-        //
+        return view('car_models.create');
     }
 
     /**
@@ -28,7 +29,23 @@ class CarModelController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+
+        $request->validate([
+            'name' => 'required|max:50',
+            'brand_id' => 'required|exists:brands,id',
+            'year' => 'required|numeric',
+            'car_type' => 'required|max:50',
+        ]);
+
+        $carModel = new CarModel();
+        $carModel->name = $data['name'];
+        $carModel->year = $data['year'];
+        $carModel->car_type = $data['car_type'];
+        $carModel->brand_id = $data['brand_id'];
+        $carModel->save();
+
+        return redirect()->route('car_models.index');
     }
 
     /**

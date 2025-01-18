@@ -5,14 +5,15 @@ namespace App\Http\Controllers;
 use App\Models\Message;
 use Illuminate\Http\Request;
 
-class MessageController extends Controller
+class MessageController extends MainController
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        //
+        $messages = Message::all();
+        return view('admin.messages.index', compact('messages'));
     }
 
     /**
@@ -20,7 +21,7 @@ class MessageController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.messages.create');
     }
 
     /**
@@ -28,7 +29,23 @@ class MessageController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+
+        $request->validate([
+            'user_id' => 'required|integer',
+            'subject' => 'required|max:50',
+            'message' => 'required',
+            'sent_date' => 'required|date|date_format:d-m-y  H:i:s',
+        ]);
+
+        $message = new Message();
+        $message->user_id = $data['user_id'];
+        $message->subject = $data['subject'];
+        $message->message = $data['message'];
+        $message->sent_date = $data['sent_date'];
+        $message->save();
+
+        return redirect()->route('messages.index');
     }
 
     /**
@@ -36,7 +53,7 @@ class MessageController extends Controller
      */
     public function show(Message $message)
     {
-        //
+        return view('admin.messages.show', compact('message'));
     }
 
     /**
@@ -60,6 +77,7 @@ class MessageController extends Controller
      */
     public function destroy(Message $message)
     {
-        //
+        $message->delete();
+        return redirect()->route('messages.index');
     }
 }

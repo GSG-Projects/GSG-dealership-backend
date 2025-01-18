@@ -5,14 +5,15 @@ namespace App\Http\Controllers;
 use App\Models\WishList;
 use Illuminate\Http\Request;
 
-class WishListController extends Controller
+class WishListController extends MainController
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        //
+        $wishLists = WishList::all();
+        return view('admin.wishLists.index', compact('wishLists'));
     }
 
     /**
@@ -20,7 +21,7 @@ class WishListController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.wishLists.create');
     }
 
     /**
@@ -28,7 +29,19 @@ class WishListController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+
+        $request->validate([
+            'user_id' => 'required|integer',
+            'card_id' => 'required|integer',
+        ]);
+
+        $wishList = new WishList();
+        $wishList->user_id = $data['user_id'];
+        $wishList->card_id = $data['card_id'];
+        $wishList->save();
+
+        return redirect()->route('wishLists.index');
     }
 
     /**
@@ -36,7 +49,7 @@ class WishListController extends Controller
      */
     public function show(WishList $wishList)
     {
-        //
+        return view('admin.wishLists.show', compact('wishList'));
     }
 
     /**
@@ -60,6 +73,7 @@ class WishListController extends Controller
      */
     public function destroy(WishList $wishList)
     {
-        //
+        $wishList->delete();
+        return redirect()->route('wishLists.index');
     }
 }

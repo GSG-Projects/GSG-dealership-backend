@@ -27,11 +27,11 @@ class Car extends Model
     ];
     public function car_model()
     {
-        return $this->hasMany(CarModel::class);
+        return $this->belongsTo(CarModel::class);
     }
     public function optionals()
     {
-        return $this->hasMany(Optional::class);
+        return $this->belongsToMany(Optional::class);
     }
 
     public function preventives()
@@ -44,8 +44,7 @@ class Car extends Model
         return $this->belongsToMany(WishList::class);
     }
 
-    public function orders()
-    {
+    public function brand() {
         return $this->belongsTo(Brand::class);
     }
 }

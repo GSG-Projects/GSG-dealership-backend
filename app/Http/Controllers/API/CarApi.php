@@ -12,7 +12,7 @@ class CarApi extends MainController
     // Ottieni tutte le macchine
     public function index()
     {
-        return response()->json(Car::all(). 200);
+        return response()->json(Car::all(), 200);
     }
 
     // Ottieni una macchina specifica

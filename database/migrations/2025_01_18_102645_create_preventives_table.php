@@ -13,6 +13,10 @@ return new class extends Migration
     {
         Schema::create('preventives', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')->constrained('user')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreignId('car_id')->constrained('car')->onUpdate('cascade')->onDelete('cascade');
+            $table->decimal('total_price', 10, 2);
+            $table->timestamp('creation_date')->default(now());
             $table->timestamps();
         });
     }

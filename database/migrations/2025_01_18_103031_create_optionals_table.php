@@ -13,6 +13,9 @@ return new class extends Migration
     {
         Schema::create('optionals', function (Blueprint $table) {
             $table->id();
+            $table->string('category', 64);
+            $table->string('name', 128);
+            $table->decimal('price', 10, 2);
             $table->timestamps();
         });
     }

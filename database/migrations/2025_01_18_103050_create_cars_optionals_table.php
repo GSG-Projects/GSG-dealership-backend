@@ -12,8 +12,13 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('cars_optionals', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
+            $table->foreignId('car_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+            $table->foreignId('optional_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+
+            $table->primary([ // Questo serve ad evitare che si crei una coppia identica di chiavi.
+                'car_id',
+                'optional_id'
+            ]);
         });
     }
 

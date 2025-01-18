@@ -23,14 +23,15 @@ class Car extends Model
         'seats_number',
         'doors_number',
         'image',
+        'description'
     ];
     public function car_model()
     {
-        return $this->belongsTo(CarModel::class);
+        return $this->hasMany(CarModel::class);
     }
     public function optionals()
     {
-        return $this->belongsToMany(Optional::class);
+        return $this->hasMany(Optional::class);
     }
 
     public function preventives()
@@ -41,5 +42,10 @@ class Car extends Model
     public function whishLists()
     {
         return $this->belongsToMany(WishList::class);
+    }
+
+    public function orders()
+    {
+        return $this->belongsTo(Brand::class);
     }
 }

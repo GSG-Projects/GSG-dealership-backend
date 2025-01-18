@@ -5,14 +5,15 @@ namespace App\Http\Controllers;
 use App\Models\Optional;
 use Illuminate\Http\Request;
 
-class OptionalController extends Controller
+class OptionalController extends MainController
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        //
+        $optionals = Optional::all();
+        return view('admin.optionals.index', compact('optionals'));
     }
 
     /**
@@ -20,7 +21,7 @@ class OptionalController extends Controller
      */
     public function create()
     {
-        //
+        
     }
 
     /**
@@ -28,7 +29,21 @@ class OptionalController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+
+        $request->validate([
+            'category' => 'required|max:64',
+            'name' => 'required|max:128',
+            'price' => 'required|numeric',
+        ]);
+
+        $optional = new Optional();
+        $optional->category = $data['category'];
+        $optional->name = $data['name'];
+        $optional->price = $data['price'];
+        $optional->save();
+
+        return redirect()->route('optionals.index');
     }
 
     /**
@@ -36,7 +51,7 @@ class OptionalController extends Controller
      */
     public function show(Optional $optional)
     {
-        //
+        return view('admin.optionals.show', compact('optional'));
     }
 
     /**

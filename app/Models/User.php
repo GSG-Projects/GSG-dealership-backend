@@ -52,16 +52,16 @@ class User extends Authenticatable
 
     public function messages()
     {
-        return $this->belongsTo(Message::class);
+        return $this->hasMany(Message::class);
     }
 
     public function wishlists()
     {
-        return $this->belongsTo(WishList::class);
+        return $this->hasMany(WishList::class);
     }
 
     public function preventives()
     {
-        return $this->belongsTo(Preventive::class);
+        return $this->hasMany(Preventive::class);
     }
 }

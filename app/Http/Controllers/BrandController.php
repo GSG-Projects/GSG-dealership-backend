@@ -4,15 +4,17 @@ namespace App\Http\Controllers;
 
 use App\Models\Brand;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
-class BrandController extends Controller
+class BrandController extends MainController
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        //
+        $brands = Brand::all();
+        return view('brands.index', compact('brands'));
     }
 
     /**
@@ -20,7 +22,7 @@ class BrandController extends Controller
      */
     public function create()
     {
-        //
+        return view('brands.create');
     }
 
     /**
@@ -28,7 +30,24 @@ class BrandController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+
+        $request->validate([
+            'name' => 'required|max:50',
+            'image' => 'nullable|image|max:256',
+        ]);
+
+        $brand = new Brand();
+        $brand->name = $data['name'];
+
+        if (isset($data['image'])) {
+            $data['image'] = Storage::disk('public')->put('images', $data['image']);
+            $brand->image = $data['image'];
+        }
+
+        $brand->save();
+
+        return redirect()->route('brands.index');
     }
 
     /**
@@ -36,7 +55,7 @@ class BrandController extends Controller
      */
     public function show(Brand $brand)
     {
-        //
+
     }
 
     /**
@@ -44,7 +63,7 @@ class BrandController extends Controller
      */
     public function edit(Brand $brand)
     {
-        //
+        
     }
 
     /**
@@ -52,7 +71,7 @@ class BrandController extends Controller
      */
     public function update(Request $request, Brand $brand)
     {
-        //
+        
     }
 
     /**
@@ -60,6 +79,7 @@ class BrandController extends Controller
      */
     public function destroy(Brand $brand)
     {
-        //
+        $brand->delete();
+        return redirect()->route('brands.index');
     }
 }

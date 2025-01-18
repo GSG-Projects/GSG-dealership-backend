@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('cars', function (Blueprint $table) {
             $table->id();
             $table->foreignId('car_model_id')->constrained('car_models')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreignId('brand_id')->constrained('brand')->onUpdate('cascade')->onDelete('cascade');
             $table->decimal('base_price', 10, 2);
             $table->string('warranty', 64);
             $table->string('environmental_class', 32);
@@ -28,7 +29,8 @@ return new class extends Migration
             $table->integer('weight');
             $table->tinyInteger('seats_number');
             $table->tinyInteger('doors_number');
-            $table->string('image')->nullable();
+            $table->string('image', 256)->nullable();
+            $table->text('description');
             $table->timestamps();
         });
     }

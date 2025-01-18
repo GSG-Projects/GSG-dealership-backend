@@ -18,7 +18,11 @@ class User extends Authenticatable
      * @var list<string>
      */
     protected $fillable = [
-        'name',
+        'firstname',
+        'lastname',
+        'dob',
+        'telephone_number',
+        'address',
         'email',
         'password',
     ];
@@ -44,5 +48,20 @@ class User extends Authenticatable
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
         ];
+    }
+
+    public function messages()
+    {
+        return $this->belongsTo(Message::class);
+    }
+
+    public function wishlists()
+    {
+        return $this->belongsTo(WishList::class);
+    }
+
+    public function preventives()
+    {
+        return $this->belongsTo(Preventive::class);
     }
 }

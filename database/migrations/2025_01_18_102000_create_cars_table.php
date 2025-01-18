@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('cars', function (Blueprint $table) {
             $table->id();
             $table->foreignId('car_model_id')->constrained('car_models')->onUpdate('cascade')->onDelete('cascade');
-            $table->foreignId('brand_id')->constrained('brand')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreignId('brand_id')->constrained('brands')->onUpdate('cascade')->onDelete('cascade');
             $table->decimal('base_price', 10, 2);
             $table->string('warranty', 64);
             $table->string('environmental_class', 32);

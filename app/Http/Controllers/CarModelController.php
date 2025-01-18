@@ -41,7 +41,7 @@ class CarModelController extends MainController
         $carModel = new CarModel();
         $carModel->name = $data['name'];
         $carModel->year = $data['year'];
-        $carModel->car_type = $data['car_type'];
+        $carModel->car_type = $data['car_type'];    
         $carModel->brand_id = $data['brand_id'];
         $carModel->save();
 

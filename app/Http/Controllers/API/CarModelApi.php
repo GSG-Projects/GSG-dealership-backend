@@ -27,8 +27,8 @@ class CarModelApi extends MainController
     public function store(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'name' => 'required|string|max:255',
             'brand_id' => 'required|exists:brands,id',
+            'name' => 'required|string|max:255',
             'production_year' => 'required|integer',
             'car_type' => 'required|string|max:64',
         ]);
@@ -54,8 +54,8 @@ class CarModelApi extends MainController
         }
 
         $validator = Validator::make($request->all(), [
-            'name' => 'sometimes|required|string|max:255',
             'brand_id' => 'sometimes|required|exists:brands,id',
+            'name' => 'sometimes|required|string|max:255',
             'production_year' => 'sometimes|required|integer',
             'car_type' => 'sometimes|required|string|max:64',
         ]);

@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+
 use App\Http\Controllers\API\CarApi;
 use App\Http\Controllers\API\BrandApi;
 use App\Http\Controllers\API\CarModelApi;
@@ -13,6 +14,7 @@ Route::middleware(['auth:sanctum', 'admin'])->group(function () {
     Route::put('/cars/{id}', [CarApi::class, 'update']);
     Route::delete('/cars/{id}', [CarApi::class, 'destroy']);
 });
+
 // Rotte per i marchi
 Route::get('/brands', [BrandApi::class, 'index']);
 Route::get('/brands/{id}', [BrandApi::class, 'show']);

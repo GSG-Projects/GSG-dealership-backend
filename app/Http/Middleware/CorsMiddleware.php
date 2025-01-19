@@ -27,8 +27,7 @@ class CorsMiddleware
             )
             ->header(
                 'Access-Control-Allow-Headers', 
-                'Content-Type, 
-                Authorization'
+                'Content-Type, Authorization'
             );
     }
 }

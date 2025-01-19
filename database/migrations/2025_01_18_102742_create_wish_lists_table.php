@@ -15,7 +15,6 @@ return new class extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained('users')->onUpdate('cascade')->onDelete('cascade');
             $table->foreignId('car_id')->constrained('cars')->onUpdate('cascade')->onDelete('cascade');
-            $table->decimal('total_price', 10, 2);
             $table->timestamp('addition_date')->default(now());
             $table->timestamps();
         });

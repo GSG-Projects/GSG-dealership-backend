@@ -15,10 +15,10 @@ class DatabaseSeeder extends Seeder
             BrandSeeder::class,
             CarModelSeeder::class,
             CarSeeder::class,
-            OptionalSeeder::class,
-            MessageSeeder::class,
-            PreventiveSeeder::class,
-            WishListSeeder::class,
+            // OptionalSeeder::class,
+            // MessageSeeder::class,
+            // PreventiveSeeder::class,
+            // WishListSeeder::class,
         ]);
     }
 }

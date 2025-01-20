@@ -9,6 +9,8 @@ class CarModel extends Model
     protected $fillable = [
         'brand_id',
         'name',
+        'most_request',
+        'image',
         'production_year',
         'car_type',
     ];

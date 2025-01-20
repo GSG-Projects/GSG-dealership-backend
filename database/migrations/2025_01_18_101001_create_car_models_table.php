@@ -17,6 +17,8 @@ return new class extends Migration
             $table->string('name', 128);
             $table->year('production_year');
             $table->string('car_type', 64);
+            $table->boolean('most_request')->default(false);
+            $table->string('image', 256);
             $table->timestamps();
         });
     }

@@ -76,6 +76,12 @@ class BrandSeeder extends Seeder
                 'updated_at' => now()
             ],
             [
+                'name' => 'Volvo',
+                'image' => 'https://www.svgrepo.com/show/303567/volvo-logo.svg',
+                'created_at' => now(), 
+                'updated_at' => now()
+            ],
+            [
                 'name' => 'Honda',
                 'image' => 'https://www.freeiconspng.com/thumbs/honda-logo-png/honda-logo-png-picture-20.png',
                 'created_at' => now(), 

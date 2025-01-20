@@ -31,6 +31,8 @@ class CarModelApi extends MainController
             'name' => 'required|string|max:255',
             'production_year' => 'required|integer',
             'car_type' => 'required|string|max:64',
+            'more_request' => 'boolean',
+            'image' => 'image'
         ]);
 
         if ($validator->fails()) {
@@ -58,6 +60,7 @@ class CarModelApi extends MainController
             'name' => 'sometimes|required|string|max:255',
             'production_year' => 'sometimes|required|integer',
             'car_type' => 'sometimes|required|string|max:64',
+            'image' => 'image'
         ]);
 
         if ($validator->fails()) {

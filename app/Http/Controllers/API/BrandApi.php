@@ -11,7 +11,8 @@ class BrandApi extends MainController
 {
     public function index()
     {
-        return response()->json(Brand::all(), 200);
+        $data = Brand::all();
+        return response()->json($data);
     }
 
     public function show($id)
@@ -29,6 +30,7 @@ class BrandApi extends MainController
     {
         $validator = Validator::make($request->all(), [
             'name' => 'required|string|max:64',
+            'image' => 'required|image',
         ]);
 
         if ($validator->fails()) {
@@ -52,7 +54,8 @@ class BrandApi extends MainController
         }
 
         $validator = Validator::make($request->all(), [
-            'name' => 'sometimes|required|string|max:64',
+            'name' => 'required|string|max:64',
+            'image' => 'required|image',
         ]);
 
         if ($validator->fails()) {

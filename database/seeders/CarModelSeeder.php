@@ -16,17 +16,17 @@ class CarModelSeeder extends Seeder
     {
         DB::table('car_models')->insert([
             [
-                'brand_id'        => 1,
+                'brand_id'        => 2,
                 'name'            => 'Model S',
                 'production_year' => 2021,
                 'car_type'        => 'Sedan',
                 'most_request'    => true,
-                'image'           => 'https://www.motoreetto.it/wp-content/uploads/2014/09/model-s-photo-gallery-06.jpg',
+                'image'           => 'https://www.vcentrum.pl/wp-content/uploads/2023/07/DSC04299.jpg',
                 'created_at'      => now(),
                 'updated_at'      => now(),
             ],
             [
-                'brand_id'        => 2,
+                'brand_id'        => 18,
                 'name'            => 'Mustang',
                 'production_year' => 2020,
                 'car_type'        => 'Coupe',
@@ -36,7 +36,7 @@ class CarModelSeeder extends Seeder
                 'updated_at'      => now(),
             ],
             [
-                'brand_id'        => 3,
+                'brand_id'        => 13,
                 'name'            => 'Civic',
                 'production_year' => 2019,
                 'car_type'        => 'Sedan',
@@ -46,7 +46,7 @@ class CarModelSeeder extends Seeder
                 'updated_at'      => now(),
             ],
             [
-                'brand_id'        => 4,
+                'brand_id'        => 1,
                 'name'            => 'Corolla',
                 'production_year' => 2018,
                 'car_type'        => 'Sedan',
@@ -56,7 +56,7 @@ class CarModelSeeder extends Seeder
                 'updated_at'      => now(),
             ],
             [
-                'brand_id'        => 5,
+                'brand_id'        => 21,
                 'name'            => 'A4',
                 'production_year' => 2021,
                 'car_type'        => 'Sedan',
@@ -71,12 +71,12 @@ class CarModelSeeder extends Seeder
                 'production_year' => 2020,
                 'car_type'        => 'Sedan',
                 'most_request'    => true,
-                'image'           => 'https://cdn-datak.motork.net/configurator-imgs/cars/it/original/BMW/SERIES-3/44542_SEDAN-4-DOORS/bmw-serie3-sedan-front-view.jpg',
+                'image'           => 'https://www.bmw.co.th/content/dam/bmw/marketTH/bmw_co_th/All%20Models/3series/sedan-long-wheelbase-2023/1001_1680x756px.jpg',
                 'created_at'      => now(),
                 'updated_at'      => now(),
             ],
             [
-                'brand_id'        => 3,
+                'brand_id'        => 13,
                 'name'            => 'Accord',
                 'production_year' => 2019,
                 'car_type'        => 'Sedan',
@@ -86,7 +86,7 @@ class CarModelSeeder extends Seeder
                 'updated_at'      => now(),
             ],
             [
-                'brand_id'        => 4,
+                'brand_id'        => 1,
                 'name'            => 'Camry',
                 'production_year' => 2018,
                 'car_type'        => 'Sedan',
@@ -96,17 +96,17 @@ class CarModelSeeder extends Seeder
                 'updated_at'      => now(),
             ],
             [
-                'brand_id'        => 1,
+                'brand_id'        => 2,
                 'name'            => 'Model 3',
                 'production_year' => 2021,
                 'car_type'        => 'Sedan',
                 'most_request'    => true,
-                'image'           => 'https://cdn.motor1.com/images/mgl/XB3oNV/s1/tesla-model-3-2022.jpg',
+                'image'           => 'https://www.shop4tesla.com/cdn/shop/articles/tesla-model-3-uber-230000-km-und-tausende-euro-gespart-956682.jpg?v=1728598029',
                 'created_at'      => now(),
                 'updated_at'      => now(),
             ],
             [
-                'brand_id'        => 7,
+                'brand_id'        => 25,
                 'name'            => 'Charger',
                 'production_year' => 2020,
                 'car_type'        => 'Sedan',

@@ -22,6 +22,12 @@ class BrandSeeder extends Seeder
                 'updated_at' => now()
             ],
             [
+                'name' => 'Tesla',
+                'image' => 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Tesla%2C_Inc._-_Logo_%28shield_version_1%2C_black%29.svg/642px-Tesla%2C_Inc._-_Logo_%28shield_version_1%2C_black%29.svg.png',
+                'created_at' => now(), 
+                'updated_at' => now()
+            ],
+            [
                 'name' => 'Aston Martin',
                 'image' => 'https://upload.wikimedia.org/wikipedia/it/thumb/5/5b/Logo_della_Aston_Martin.svg/2560px-Logo_della_Aston_Martin.svg.png',
                 'created_at' => now(), 
@@ -150,6 +156,12 @@ class BrandSeeder extends Seeder
             [
                 'name' => 'Alafromeo',
                 'image' => 'https://upload.wikimedia.org/wikipedia/it/thumb/c/c7/Alfa_Romeo_2015.svg/2048px-Alfa_Romeo_2015.svg.png',
+                'created_at' => now(), 
+                'updated_at' => now()
+            ],
+            [
+                'name' => 'Dodge',
+                'image' => 'https://cdn.worldvectorlogo.com/logos/dodge-ram.svg',
                 'created_at' => now(), 
                 'updated_at' => now()
             ],

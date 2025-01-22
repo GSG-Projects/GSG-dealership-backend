@@ -12,8 +12,7 @@ class CarApi extends MainController
     // Ottieni tutte le macchine
     public function index()
     {
-        $car = Car::with('carModel', 'brand', 'optionals', 'preventives', 'wishLists')->get();
-        dd($car);
+        $car = Car::all();
         return response()->json($car);
     }
 

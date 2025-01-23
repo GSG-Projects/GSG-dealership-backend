@@ -120,7 +120,7 @@ class CarModelSeeder extends Seeder
                 'name'            => 'Charger',
                 'production_year' => 2020,
                 'car_type'        => 'Sedan',
-                'most_request'    => true,
+                'most_request'    => false,
                 'image'           => 'https://www.cavauto.com/wp-content/webp-express/webp-images/uploads/2022/08/dodge-charger-2021-srt-hellcat.jpeg.webp',
                 'created_at'      => now(),
                 'updated_at'      => now(),

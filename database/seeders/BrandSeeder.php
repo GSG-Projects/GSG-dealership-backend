@@ -23,7 +23,7 @@ class BrandSeeder extends Seeder
             ],
             [
                 'name' => 'Tesla',
-                'image' => 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Tesla%2C_Inc._-_Logo_%28shield_version_1%2C_black%29.svg/642px-Tesla%2C_Inc._-_Logo_%28shield_version_1%2C_black%29.svg.png',
+                'image' => 'https://img.icons8.com/win10/512/FFFFFF/tesla-logo.png',
                 'created_at' => now(), 
                 'updated_at' => now()
             ],

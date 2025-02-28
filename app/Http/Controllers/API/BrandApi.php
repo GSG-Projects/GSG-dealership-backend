@@ -20,7 +20,7 @@ class BrandApi extends MainController
         $brand = Brand::find($id);
 
         if (!$brand) {
-            return response()->json(['message' => 'Marchio non trovato'], 404);
+            return response()->json(['message' => 'Brand non trovato'], 404);
         }
 
         return response()->json($brand, 200);
@@ -41,7 +41,7 @@ class BrandApi extends MainController
             $brand = Brand::create($request->all());
             return response()->json($brand, 201);
         } catch (\Exception $e) {
-            return response()->json(['message' => 'Creazione del marchio fallita', 'error' => $e->getMessage()], 500);
+            return response()->json(['message' => 'Creazione del brand fallito', 'error' => $e->getMessage()], 500);
         }
     }
 
@@ -66,7 +66,7 @@ class BrandApi extends MainController
             $brand->update($request->all());
             return response()->json($brand, 200);
         } catch (\Exception $e) {
-            return response()->json(['message' => 'Aggiornamento del marchio fallito', 'error' => $e->getMessage()], 500);
+            return response()->json(['message' => 'Aggiornamento del brand fallito', 'error' => $e->getMessage()], 500);
         }
     }
 
@@ -75,14 +75,14 @@ class BrandApi extends MainController
         $brand = Brand::find($id);
 
         if (!$brand) {
-            return response()->json(['message' => 'Marchio non trovato'], 404);
+            return response()->json(['message' => 'Brand non trovato'], 404);
         }
 
         try {
             $brand->delete();
-            return response()->json(['message' => 'Marchio eliminato con successo!'], 200);
+            return response()->json(['message' => 'Brand eliminato con successo!'], 200);
         } catch (\Exception $e) {
-            return response()->json(['message' => 'Eliminazione del marchio fallita', 'error' => $e->getMessage()], 500);
+            return response()->json(['message' => 'Eliminazione del brand fallita', 'error' => $e->getMessage()], 500);
         }
     }
 }
